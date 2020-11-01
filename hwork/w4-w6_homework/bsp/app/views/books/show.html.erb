@@ -1,0 +1,57 @@
+<style>
+body {background-color: #ccffcc;}
+</style>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>Pagecount:</strong>
+  <%= @book.pagecount %>
+</p>
+
+<p>
+  <strong>Book Owner:</strong>
+  <%= @book.user.username %>
+</p>
+
+<hr>
+
+<div id="flash_notice"></div>
+<h2>Comments</h2>
+<%= render @book.comments %>
+<div class='comments'></div>
+
+<hr>
+
+<h2>Add a comment:</h2>
+<%= form_with(model: [ @book, @book.comments.build ], local: false) do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<hr>
+
+<% if @current_user == @book.user.username %>
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<% end %>
+
+<%= link_to 'Back', books_path %>
