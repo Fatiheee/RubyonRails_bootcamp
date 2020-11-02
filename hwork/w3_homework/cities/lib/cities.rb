@@ -11,7 +11,7 @@ module Cities
 
     def city
       if @number > '0' && @number < '82'
-        data_hash = JSON.parse(File.read('E:/Ruby/cities/lib/cities.json'))
+        data_hash = JSON.parse(File.read('write_directory_cities.json_file'))
         city = data_hash.select { |data| data == @number }
         return city.values
       else
