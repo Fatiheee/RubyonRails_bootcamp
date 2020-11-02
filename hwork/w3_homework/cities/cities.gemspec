@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Summary'
   spec.description   = 'Description'
-  spec.homepage      = "https://github.com/Fatiheee/Gem.git"
+  spec.homepage      = "write_your_github_repository"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
